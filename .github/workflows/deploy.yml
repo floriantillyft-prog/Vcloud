@@ -29,7 +29,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          # IMPORTANT : on publie le sous-dossier où sont tes fichiers
+          path: vcloud_ghpages_ready
 
       - name: Deploy to GitHub Pages
         id: deployment
