@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vcloud — Offres & Démo</title>
+<meta name="description" content="Vcloud — stockage chiffré côté client. Offres d'abonnement et démonstration.">
+<style>
+:root{
+  --bg:#0b0e12;--fg:#e8eef6;--muted:#9fb0c7;--card:#0f141c;--line:#1b2230;--ring:#2940ff;
+  --starter:#2a63ff;--standard:#20b7a6;--pro:#7b61ff;--advanced:#3f7cff;--expert:#ff8a34;--ent:#5e6b7f;--entmax:#0a0a0a;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg);}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.brand{display:flex;gap:10px;align-items:center}
+.brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2a63ff,#5cc6ff)}
+.brand h1{font-size:20px;margin:0}
+.badge{border:1px solid #244463;background:#12233a;color:#8ad0ff;padding:3px 10px;border-radius:999px;font-size:12px}
+.hero{background:radial-gradient(90% 80% at 50% -10%,rgba(42,99,255,.25),transparent),linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid var(--line);border-radius:16px;padding:22px;margin:10px 0 22px}
+h2{margin:10px 0 6px}
+p.lead{color:var(--muted);margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:14px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.card{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.card .top{display:flex;align-items:center;justify-content:space-between}
+.price{font-weight:800;font-size:26px}
+.small{color:var(--muted);font-size:12px}
+.kv{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.kv div{display:flex;align-items:center;gap:8px}
+.kv b{font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;border:1px solid var(--line);background:#121826;color:#fff;padding:10px 12px;font-weight:700;text-decoration:none;cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.ribbon{position:absolute;inset:auto 16px 16px auto;border-radius:999px;padding:6px 10px;font-weight:700;border:1px solid rgba(255,255,255,.12)}
+.note{color:var(--muted);font-size:12px;margin-top:6px}
+/* Plan accents */
+.plan-starter{--accent:var(--starter)}
+.plan-standard{--accent:var(--standard)}
+.plan-pro{--accent:var(--pro)}
+.plan-advanced{--accent:var(--advanced)}
+.plan-expert{--accent:var(--expert)}
+.plan-ent{--accent:var(--ent)}
+.plan-entmax{--accent:var(--fg)}
+.card.accent{box-shadow:0 0 0 1px color-mix(in oklab,var(--accent) 50%,#000);}
+.card.accent .ribbon{background:color-mix(in oklab,var(--accent) 20%,transparent);color:#fff;border-color:color-mix(in oklab,var(--accent) 45%,#000)}
+.card .title{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px color-mix(in oklab,var(--accent) 20%, transparent)}
+.hr{height:1px;background:linear-gradient(90deg,transparent,#223048,transparent);margin:8px 0}
+/* Demo section */
+.demo{border:1px dashed #223048;border-radius:16px;padding:16px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+input[type="password"],input[type="file"]{background:#0b111a;border:1px solid #223048;color:#fff;border-radius:10px;padding:8px 10px}
+.progress{height:8px;background:#111722;border:1px solid #20304a;border-radius:10px;overflow:hidden;margin-top:8px}
+.progress>div{height:100%;background:var(--ring);width:0%}
+pre{background:#0a0f16;border:1px solid #1b2230;border-radius:10px;padding:10px;white-space:pre-wrap;overflow:auto}
+.footer{color:var(--muted);text-align:center;margin:28px 0 8px}
+</style>
+</head>
+<body>
+<section id="home" class="home">
+  <div class="home-content">
+    <h1>Bienvenue sur Vcloud</h1>
+    <p>Le cloud simple, sécurisé et performant.</p>
+    <a href="#offres" class="btn">Découvrir nos offres</a>
+  </div>
+</section>
+
+<style>
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg,#1f2937,#111827);
+  text-align: center;
+}
+.home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #60a5fa;
+}
+.home p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #d1d5db;
+}
+.home .btn {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+</style>
+
+<div class="wrap">
+  <header class="header">
+    <div class="brand"><div class="logo"></div><h1>Vcloud</h1><span class="badge">Vision3+ • Mémoire résonnante</span></div>
+    <a class="btn" href="#offres">Voir les offres</a>
+  </header>
+
+  <section class="hero">
+    <h2>Stockage chifré, simple & performant</h2>
+    <p class="lead">Chiffrement AES‑GCM 256 côté client, stockage distribué avec réplication ×3, zéro connaissance. Ci‑dessous : une interface claire pour choisir ton abonnement.</p>
+  </section>
+
+  <section id="offres">
+    <h2>Offres d'abonnement</h2>
+    <p class="small">Chaque abonnement inclut la réplication ×3. Couleur = niveau d'offre.</p>
+    <div class="grid">
+      <article class="card accent plan-starter"><div class="top"><div class="title"><span class="dot"></span> Starter</div><span class="ribbon">Gratuit</span></div><div class="kv"><div><b>Contribution</b> — 500 Go (disque prêté)</div><div><b>Stockage total</b> — 1.5 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Créer un compte</a></article>
+      <article class="card accent plan-standard"><div class="top"><div class="title"><span class="dot"></span> Standard</div><span class="ribbon">~ 5 € / mois</span></div><div class="kv"><div><b>Contribution</b> — 2 To</div><div><b>Stockage total</b> — 6 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Démarrer l'essai</a></article>
+      <article class="card accent plan-pro"><div class="top"><div class="title"><span class="dot"></span> Pro</div><span class="ribbon">~ 10 € / mois</span></div><div class="kv"><div><b>Contribution</b> — 4 To</div><div><b>Stockage total</b> — 12 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Passer Pro</a></article>
+      <article class="card accent plan-advanced"><div class="top"><div class="title"><span class="dot"></span> Advanced</div><span class="ribbon">~ 15 € / mois</span></div><div class="kv"><div><b>Contribution</b> — 6 To</div><div><b>Stockage total</b> — 18 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Choisir Advanced</a></article>
+      <article class="card accent plan-expert"><div class="top"><div class="title"><span class="dot"></span> Expert</div><span class="ribbon">~ 25 € / mois</span></div><div class="kv"><div><b>Contribution</b> — 10 To</div><div><b>Stockage total</b> — 30 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Choisir Expert</a></article>
+      <article class="card accent plan-ent"><div class="top"><div class="title"><span class="dot"></span> Entreprise</div><span class="ribbon">Sur devis</span></div><div class="kv"><div><b>Contribution</b> — 50 To</div><div><b>Stockage total</b> — 150 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Contacter les ventes</a></article>
+      <article class="card accent plan-entmax"><div class="top"><div class="title"><span class="dot"></span> Entreprise Max</div><span class="ribbon">Sur devis</span></div><div class="kv"><div><b>Contribution</b> — 100 To</div><div><b>Stockage total</b> — 300 To (x3)</div></div><div class="hr"></div><a class="btn" href="#">Parler à un expert</a></article>
+    </div>
+  </section>
+
+  <section class="demo" id="demo" style="margin-top:24px">
+    <h2>Démo chiffrage (facultatif)</h2>
+    <p class="small">Sélectionne un fichier et un mot de passe. Tout se fait dans ton navigateur.</p>
+    <div class="controls">
+      <input id="pass" type="password" placeholder="Mot de passe">
+      <input id="file" type="file">
+      <button class="btn" id="encryptBtn">Chiffrer & stocker</button>
+      <button class="btn" id="exportBtn">Exporter .vcloud</button>
+      <button class="btn" id="importBtn">Importer .vcloud</button>
+      <button class="btn" id="restoreBtn">Restaurer</button>
+    </div>
+    <div class="progress"><div id="bar"></div></div>
+    <pre id="log"></pre>
+    <p class="note">Tech: PBKDF2‑SHA256 → AES‑GCM 256, chunks 1 MiB, IndexedDB.</p>
+  </section>
+
+  <p class="footer">© Vcloud — Vision3+ • Prototype</p>
+</div>
+
+<script>
+const log=(...a)=>{const el=document.getElementById('log');el.textContent+=a.join(' ')+'\n';el.scrollTop=el.scrollHeight;}
+const bar=(p)=>{document.getElementById('bar').style.width=(p*100).toFixed(1)+'%';}
+const dbp=new Promise((res,rej)=>{const r=indexedDB.open('vcloud_simple',1);r.onupgradeneeded=()=>{r.result.createObjectStore('chunks');r.result.createObjectStore('packages');};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});
+const put=async(s,k,v)=>new Promise(async(res,rej)=>{const tx=(await dbp).transaction(s,'readwrite');tx.objectStore(s).put(v,k);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error);});
+const get=async(s,k)=>new Promise(async(res,rej)=>{const tx=(await dbp).transaction(s,'readonly');const rq=tx.objectStore(s).get(k);rq.onsuccess=()=>res(rq.result);rq.onerror=()=>rej(rq.error);});
+const rand=(n)=>crypto.getRandomValues(new Uint8Array(n));
+async function deriveKey(password,salt){const enc=new TextEncoder();const base=await crypto.subtle.importKey('raw',enc.encode(password),'PBKDF2',false,['deriveKey']);return await crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt,iterations:200000},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);}
+function b64(buf){return btoa(String.fromCharCode(...new Uint8Array(buf)));}
+function unb64(s){const bin=atob(s);const u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u.buffer;}
+async function encryptAndStore(file,password){
+  const salt=rand(16); const key=await deriveKey(password,salt);
+  const reader=file.stream().getReader(); let total=0; let i=0; const meta=[];
+  while(true){const {done,value}=await reader.read(); if(done)break;
+    let off=0; const size=1<<20;
+    while(off<value.byteLength){const slice=value.slice(off,Math.min(value.byteLength,off+size));
+      const iv=rand(12); const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,slice);
+      const id=`c_${file.name}_${i}_${Date.now()}`; await put('chunks',id,{iv:b64(iv),data:b64(ct)}); meta.push({id,len:slice.byteLength}); i++; total+=slice.byteLength; bar(total/file.size);
+    }}}
+  const pkg={version:1,fileName:file.name,fileSize:file.size,createdAt:new Date().toISOString(),salt:b64(salt),chunks:meta};
+  const pid=`p_${file.name}_${Date.now()}`; await put('packages',pid,pkg); log('✅ Stocké. Paquet:',pid,'Blocs:',meta.length); return pid;
+}
+async function exportPkg(){
+  const tx=(await dbp).transaction('packages','readonly'); const rq=tx.objectStore('packages').getAll(); await new Promise(r=>rq.onsuccess=r);
+  const pkg=rq.result.at(-1); if(!pkg){alert('Rien à exporter');return;}
+  const arr=[]; for(const m of pkg.chunks){const c=await get('chunks',m.id); arr.push({id:m.id,iv:c.iv,data:c.data});}
+  const blob=new Blob([JSON.stringify(Object.assign({},pkg,{chunks:arr}),null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=(pkg.fileName||'fichier')+'.vcloud'; a.click(); URL.revokeObjectURL(url); log('📦 Exporté .vcloud');
+}
+async function importPkg(){
+  const inp=document.createElement('input'); inp.type='file'; inp.accept='.vcloud,application/json'; inp.onchange=async()=>{
+    const t=await inp.files[0].text(); const pkg=JSON.parse(t); const chunks=pkg.chunks; delete pkg.chunks;
+    const pid='import_'+(pkg.fileName||'fichier')+'_'+Date.now(); await put('packages',pid,pkg);
+    for(const c of chunks){await put('chunks',c.id,{iv:c.iv,data:c.data});}
+    log('⬇️ Importé',pid,'blocs:',chunks.length);
+  }; inp.click();
+}
+async function restore(password){
+  const tx=(await dbp).transaction('packages','readonly'); const rq=tx.objectStore('packages').getAll(); await new Promise(r=>rq.onsuccess=r);
+  const pkg=rq.result.at(-1); if(!pkg){alert('Aucun paquet');return;}
+  const salt=unb64(pkg.salt); const key=await deriveKey(password,new Uint8Array(salt)); let total=0;
+  const parts=[]; for(const m of pkg.chunks){const c=await get('chunks',m.id); const iv=new Uint8Array(unb64(c.iv)); const ct=unb64(c.data);
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct).catch(()=>null); if(!pt){alert('Mot de passe incorrect');return;}
+    parts.push(new Uint8Array(pt)); total+=pt.byteLength; bar(total/pkg.fileSize);
+  }
+  const out=new Uint8Array(pkg.fileSize); let off=0; for(const p of parts){out.set(p,off); off+=p.byteLength;}
+  const url=URL.createObjectURL(new Blob([out],{type:'application/octet-stream'})); const a=document.createElement('a'); a.href=url; a.download=pkg.fileName||'restored.bin'; a.click(); URL.revokeObjectURL(url); log('🧩 Restauré.');
+}
+document.getElementById('encryptBtn').onclick=async()=>{const f=document.getElementById('file').files[0]; const pw=document.getElementById('pass').value; if(!f||!pw){alert('Fichier + mot de passe');return;} log('🔐 Chiffrement...'); bar(0); await encryptAndStore(f,pw); bar(1);}
+document.getElementById('exportBtn').onclick=exportPkg;
+document.getElementById('importBtn').onclick=importPkg;
+document.getElementById('restoreBtn').onclick=async()=>{const pw=document.getElementById('pass').value; if(!pw){alert('Mot de passe');return;} await restore(pw);}
+</script>
+</body>
+</html>
