@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vcloud — Accueil</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="brand"><div class="logo"></div><h1>Vcloud</h1></div>
+  <nav><a href="#offres">Offres</a> <a href="dashboard.html">Espace abonné</a></nav>
+</header>
+
+<section id="home" class="home">
+  <h1>Bienvenue sur Vcloud</h1>
+  <p>Le cloud simple, sécurisé et performant.</p>
+  <a href="#offres" class="btn">Découvrir nos offres</a>
+</section>
+
+<section id="offres" class="offres">
+  <h2>Nos Offres d'abonnement</h2>
+  <div class="grid">
+    <div class="card starter"><h3>Starter</h3><p>500 Go (1,5 To répliqué)</p></div>
+    <div class="card standard"><h3>Standard</h3><p>2 To (6 To répliqué)</p></div>
+    <div class="card pro"><h3>Pro</h3><p>4 To (12 To répliqué)</p></div>
+    <div class="card advanced"><h3>Advanced</h3><p>6 To (18 To répliqué)</p></div>
+    <div class="card expert"><h3>Expert</h3><p>10 To (30 To répliqué)</p></div>
+    <div class="card entreprise"><h3>Entreprise</h3><p>50 To (150 To répliqué)</p></div>
+    <div class="card entmax"><h3>Entreprise Max</h3><p>100 To (300 To répliqué)</p></div>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <h2>Démo chiffrage (facultatif)</h2>
+  <p>Sélectionne un fichier et un mot de passe. Tout se fait dans ton navigateur.</p>
+  <input type="password" id="pass" placeholder="Mot de passe">
+  <input type="file" id="file">
+  <button class="btn" id="encryptBtn">Chiffrer & stocker</button>
+  <button class="btn" id="exportBtn">Exporter .vcloud</button>
+  <button class="btn" id="importBtn">Importer .vcloud</button>
+  <button class="btn" id="restoreBtn">Restaurer</button>
+  <div class="progress"><div id="bar"></div></div>
+  <pre id="log"></pre>
+</section>
+
+<footer class="footer">© 2025 Vcloud</footer>
+
+<script src="crypto_demo.js"></script>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+  });
+});
+</script>
+</body>
+</html>
