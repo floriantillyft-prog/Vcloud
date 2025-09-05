@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vcloud — Espace abonné</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="brand"><div class="logo"></div><h1>Espace Abonné</h1></div>
+  <nav><a href="index.html">Accueil</a></nav>
+</header>
+
+<main class="dashboard">
+  <div class="login" id="login">
+    <h2>Connexion</h2>
+    <input type="password" id="pwd" placeholder="Mot de passe">
+    <button onclick="login()">Entrer</button>
+  </div>
+
+  <div class="app hidden" id="app">
+    <h2>Mes Fichiers</h2>
+    <input type="file" id="fileInput" multiple>
+    <div class="file-list" id="fileList"></div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
