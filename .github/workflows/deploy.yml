@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy Vcloud (GitHub Pages)
 
 on:
-  workflow_dispatch:
   push:
-    branches: ["main"]
+    branches: [ "main" ]   # déploie à chaque push sur main
+  workflow_dispatch:        # permet de lancer à la main depuis l'onglet Actions
 
 permissions:
   contents: read
@@ -11,27 +11,40 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "vcloud-pages"
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # Active Pages si possible (sinon ça renvoie parfois 404 dans certaines org)
+      # (Optionnel mais conseillé) on copie le dossier à publier
+      # dans un répertoire "site" et on ajoute .nojekyll pour éviter
+      # que Pages applique Jekyll (utile si tu as des dossiers _*).
+      - name: Prepare site
+        run: |
+          rm -rf site
+          mkdir -p site
+          cp -r vcloud_ghpages_ready/* site/
+          touch site/.nojekyll
+          # Si tu as un domaine custom, décommente la ligne ci-dessous et remplace
+          # echo "vcloud.example.com" > site/CNAME
+
+      # Configure Pages (active automatiquement l'endpoint Pages si besoin)
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-        continue-on-error: true  # ← pour ne pas casser si l'API retourne 404
+        continue-on-error: true
 
-      # (Si ton site est à la racine; sinon mets le sous-dossier)
+      # On envoie le contenu du dossier 'site' comme artifact Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
 
   deploy:
     needs: build
@@ -40,6 +53,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
