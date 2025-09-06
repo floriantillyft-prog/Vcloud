@@ -3,285 +3,204 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vcloud — Stockage sécurisé</title>
-  <meta name="color-scheme" content="dark light">
+  <meta name="color-scheme" content="dark light" />
+  <title>Vcloud — Stockage sécurisé, simple & performant</title>
 
-  <style>
-    :root{
-      --bg:#0b1220;
-      --bg-2:#0d1426;
-      --panel:#0f1a2f;
-      --panel-2:#0c1830;
-      --muted:#8aa4d6;
-      --text:#eaf1ff;
-      --accent:#2e6bff;
-      --accent-2:#7aa0ff;
-      --success:#2ecc71;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background: radial-gradient(1200px 800px at 70% -10%, rgba(66,119,255,.18), transparent 60%),
-                  radial-gradient(800px 600px at 10% 120%, rgba(116,81,255,.12), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:var(--accent);text-decoration:none}
-    .wrap{width:min(1200px, 92vw); margin-inline:auto}
-
-    /* Topbar */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(10px);
-      background:linear-gradient(180deg, rgba(13,20,38,.75), rgba(13,20,38,.35));
-      border-bottom:1px solid rgba(122,160,255,.08);
-    }
-    .topbar .row{
-      display:flex; align-items:center; justify-content:space-between;
-      height:64px;
-    }
-    .brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
-    .logo{
-      width:26px;height:26px;border-radius:8px;
-      display:grid;place-items:center;font-size:.9rem;
-      background:linear-gradient(135deg, #2e6bff, #7aa0ff);
-      box-shadow:0 8px 20px rgba(46,107,255,.35);
-    }
-    nav{display:flex; gap:24px; align-items:center}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:.65rem 1rem; gap:.5rem; border-radius:999px;
-      background:rgba(122,160,255,.1); color:var(--text);
-      border:1px solid rgba(122,160,255,.18);
-      box-shadow:var(--shadow); transition:.25s ease;
-      cursor:pointer; text-decoration:none; white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-1px); background:rgba(122,160,255,.16)}
-    .btn.primary{background:linear-gradient(135deg, #2e6bff, #7598ff); border-color:transparent}
-    .btn.primary:hover{filter:brightness(1.04); transform:translateY(-2px)}
-    .btn.small{padding:.5rem .8rem; font-size:.9rem}
-
-    /* Sections */
-    section{padding:clamp(56px,6vw,88px) 0}
-    .hero{
-      min-height:56svh; display:grid; place-items:center;
-      text-align:center;
-    }
-    .hero h1{
-      font-size:clamp(28px, 4vw, 44px);
-      line-height:1.1; margin:.4rem 0 1rem;
-      letter-spacing:.2px;
-    }
-    .hero p{color:var(--muted); max-width:800px; margin-inline:auto}
-    .chev{display:block; margin:28px auto 0; color:var(--muted); opacity:.7}
-
-    .intro{
-      background:
-        radial-gradient(600px 320px at 85% -10%, rgba(66,119,255,.18), transparent 60%),
-        radial-gradient(400px 320px at 5% 110%, rgba(116,81,255,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
-        var(--bg-2);
-      border-top:1px solid rgba(122,160,255,.08);
-      border-bottom:1px solid rgba(122,160,255,.08);
-    }
-    .intro .grid{
-      display:grid; grid-template-columns:1.2fr .9fr; gap:48px; align-items:center;
-    }
-    .kicker{letter-spacing:.22em; color:var(--muted); font-size:.8rem}
-    .intro h2{font-size:clamp(22px,3.2vw,38px); line-height:1.1; margin:.4rem 0 1rem}
-    .intro p{color:var(--muted); max-width:60ch}
-
-    .device{
-      border-radius:22px; padding:26px; aspect-ratio:16/10;
-      background:linear-gradient(220deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid rgba(122,160,255,.12);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.06), var(--shadow);
-      display:grid; grid-template-columns:1fr 130px 80px; gap:18px; align-items:end;
-    }
-    .slab{
-      border-radius:14px; height:100%;
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(122,160,255,.15);
-    }
-    .slab:nth-child(2){height:82%}
-    .slab:nth-child(3){height:58%}
-
-    /* Pricing */
-    .pricing{padding-bottom:80px}
-    .pricing h2{font-size:clamp(22px,3vw,34px); margin-bottom:28px}
-    .cards{
-      display:grid; gap:18px;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-    }
-    @media (min-width:960px){
-      .cards{grid-template-columns:repeat(2, minmax(0,1fr))}
-    }
-    .card{
-      border-radius:18px; padding:20px 18px; position:relative; overflow:hidden;
-      background:
-        radial-gradient(800px 300px at 120% -60%, rgba(46,107,255,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid rgba(122,160,255,.12);
-      box-shadow:var(--shadow);
-      transition:.25s ease;
-    }
-    .card:hover{transform:translateY(-3px); box-shadow:0 18px 40px rgba(0,0,0,.45)}
-    .card .title{display:flex; align-items:center; gap:.6rem; font-weight:700}
-    .icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:.95rem}
-    .ic-start{background:linear-gradient(135deg,#7aa0ff,#2e6bff)}
-    .ic-std{background:linear-gradient(135deg,#39c0ff,#2e6bff)}
-    .ic-adv{background:linear-gradient(135deg,#ffb04c,#ff6a3d)}
-    .ic-exp{background:linear-gradient(135deg,#b58cff,#7d54ff)}
-    .ic-ent{background:linear-gradient(135deg,#66e0a3,#2ecc71)}
-    .ic-max{background:linear-gradient(135deg,#e06699,#b84aff)}
-
-    .meta{margin-top:6px; color:var(--muted)}
-    .price{font-size:clamp(22px,2.5vw,28px); font-weight:800; margin:10px 0 12px}
-    .row{display:flex; gap:10px; flex-wrap:wrap}
-    .muted{color:var(--muted)}
-
-    footer{
-      border-top:1px solid rgba(122,160,255,.1);
-      color:var(--muted); padding:28px 0 70px; font-size:.92rem;
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-    }
-
-    /* Responsive */
-    @media (max-width:900px){
-      .intro .grid{grid-template-columns:1fr; gap:28px}
-      .device{grid-template-columns:1fr .8fr .6fr}
-    }
-  </style>
+  <!-- Feuille de style globale -->
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
 
-  <!-- TOPBAR -->
+<body>
+  <!-- Barre supérieure -->
   <header class="topbar">
-    <div class="wrap row">
-      <div class="brand">
-        <span class="logo">☁️</span> Vcloud
-      </div>
-      <nav>
-        <a href="#why" class="muted">Pourquoi Vcloud</a>
-        <a href="#pricing" class="muted">Abonnements</a>
-        <a href="#login" class="btn small">Se connecter</a>
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Accueil Vcloud">
+        <span class="brand-mark" aria-hidden="true">☁️</span>
+        <span class="brand-name">Vcloud</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#why">Pourquoi Vcloud</a>
+        <a href="#offers">Abonnements</a>
+        <a class="btn small" href="#signin">Se connecter</a>
       </nav>
+
+      <!-- Burger (optionnel si tu gères l’ouverture de menu en JS) -->
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menuDrawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="wrap">
-      <h1>Ton espace sécurisé<br>dans le cloud</h1>
-      <p>Stockage chiffré, simple et rapide pour tous tes fichiers.</p>
-      <p style="margin-top:16px">
-        <a href="#why" class="btn primary">Accéder à Vcloud</a>
-      </p>
-      <a class="chev" href="#why">▾</a>
-    </div>
-  </section>
+  <main id="top" class="page">
 
-  <!-- WHY / INTRO -->
-  <section class="intro" id="why">
-    <div class="wrap grid">
-      <div>
-        <div class="kicker">VCLOUD</div>
-        <h2>Tes fichiers, partout, en sécurité</h2>
-        <p>
+    <!-- SECTION 1 : HERO -->
+    <section class="hero" id="hero" aria-label="Accroche">
+      <div class="wrap">
+        <h1>Ton espace sécurisé<br />dans le cloud</h1>
+        <p class="muted">Stockage chiffré, simple et rapide pour tous tes fichiers.</p>
+
+        <div class="cta-row">
+          <a class="btn" href="#features">Accéder à Vcloud</a>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true">▾</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 : “FEATURES” + CTA vers offres -->
+    <section id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <p class="tagline" id="why">VCLOUD</p>
+        <h2 id="features-title">Tes fichiers, partout, en sécurité</h2>
+        <p class="muted">
           Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande.
           Simple, rapide et pensé pour le quotidien.
         </p>
-        <div class="row" style="margin-top:16px">
-          <a class="btn primary" href="#pricing">Consulter les abonnements</a>
-          <a class="btn" href="#login">Se connecter</a>
+
+        <div class="cta-row">
+          <a class="btn" href="#offers">Consulter les abonnements</a>
+          <a class="btn ghost" href="#signin">Se connecter</a>
+        </div>
+
+        <!-- Illustration placeholder (fond/ombres gérés par CSS) -->
+        <div class="devices-plate" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 : OFFRES / PRICING -->
+    <section class="offers" id="offers" aria-labelledby="offers-title">
+      <div class="wrap">
+        <h2 id="offers-title">Offres d’abonnement</h2>
+
+        <div class="offers-grid">
+
+          <!-- Starter -->
+          <article class="card">
+            <header class="plan">
+              <span class="plan-ico">🚀</span>
+              <div class="plan-txt">
+                <h3 class="plan-name">Starter</h3>
+                <div class="storage">1,5 To</div>
+              </div>
+            </header>
+            <div class="price">
+              <span class="value">Gratuit</span>
+            </div>
+            <div class="actions">
+              <a class="btn ghost" href="#signup">Créer un compte</a>
+            </div>
+          </article>
+
+          <!-- Standard -->
+          <article class="card">
+            <header class="plan">
+              <span class="plan-ico">🔷</span>
+              <div class="plan-txt">
+                <h3 class="plan-name">Standard</h3>
+                <div class="storage">6 To</div>
+              </div>
+            </header>
+            <div class="price">
+              <span class="value">5 €</span>
+              <span class="per">/ mois</span>
+            </div>
+            <div class="actions">
+              <a class="btn ghost" href="#choose-standard">Choisir Standard</a>
+            </div>
+          </article>
+
+          <!-- Advanced -->
+          <article class="card">
+            <header class="plan">
+              <span class="plan-ico">⚡</span>
+              <div class="plan-txt">
+                <h3 class="plan-name">Advanced</h3>
+                <div class="storage">18 To</div>
+              </div>
+            </header>
+            <div class="price">
+              <span class="value">15 €</span>
+              <span class="per">/ mois</span>
+            </div>
+            <div class="actions">
+              <a class="btn ghost" href="#choose-advanced">Choisir Advanced</a>
+            </div>
+          </article>
+
+          <!-- Expert -->
+          <article class="card">
+            <header class="plan">
+              <span class="plan-ico">💼</span>
+              <div class="plan-txt">
+                <h3 class="plan-name">Expert</h3>
+                <div class="storage">30 To</div>
+              </div>
+            </header>
+            <div class="price">
+              <span class="value">25 €</span>
+              <span class="per">/ mois</span>
+            </div>
+            <div class="actions">
+              <a class="btn ghost" href="#choose-expert">Choisir Expert</a>
+            </div>
+          </article>
+
+          <!-- Entreprise -->
+          <article class="card">
+            <header class="plan">
+              <span class="plan-ico">🏢</span>
+              <div class="plan-txt">
+                <h3 class="plan-name">Entreprise</h3>
+                <div class="storage">150 To</div>
+              </div>
+            </header>
+            <div class="price">
+              <span class="value">Sur devis</span>
+            </div>
+            <div class="actions">
+              <a class="btn ghost" href="#sales">Contactez les ventes</a>
+            </div>
+          </article>
+
+          <!-- Entreprise Max -->
+          <article class="card">
+            <header class="plan">
+              <span class="plan-ico">🏙️</span>
+              <div class="plan-txt">
+                <h3 class="plan-name">Entreprise Max</h3>
+                <div class="storage">300 To</div>
+              </div>
+            </header>
+            <div class="price">
+              <span class="value">Sur devis</span>
+            </div>
+            <div class="actions">
+              <a class="btn ghost" href="#sales">Contactez les ventes</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="trust">
+          <span class="muted">Ils nous font confiance :</span>
+          <div class="badges">
+            <span class="badge">sslstore</span>
+            <span class="badge">Google</span>
+            <span class="badge">trustpilot</span>
+          </div>
+        </div>
+
+        <div class="footlinks">
+          <a href="#terms">Conditions</a>
+          <a href="#privacy">Confidentialité</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="device">
-        <div class="slab"></div>
-        <div class="slab"></div>
-        <div class="slab"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="wrap">
-      <h2>Offres d’abonnement</h2>
-      <div class="cards">
-
-        <article class="card">
-          <div class="title"><span class="icon ic-start">🚀</span> Starter</div>
-          <div class="meta">1,5 To</div>
-          <div class="price">Gratuit</div>
-          <div class="row">
-            <a class="btn primary" href="#">Créer un compte</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="title"><span class="icon ic-std">🧊</span> Standard</div>
-          <div class="meta">6 To</div>
-          <div class="price">5 € / mois</div>
-          <div class="row">
-            <a class="btn" href="#">Choisir Standard</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="title"><span class="icon ic-adv">⚡</span> Advanced</div>
-          <div class="meta">18 To</div>
-          <div class="price">15 € / mois</div>
-          <div class="row">
-            <a class="btn" href="#">Choisir Advanced</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="title"><span class="icon ic-exp">💼</span> Expert</div>
-          <div class="meta">30 To</div>
-          <div class="price">25 € / mois</div>
-          <div class="row">
-            <a class="btn" href="#">Choisir Expert</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="title"><span class="icon ic-ent">🏢</span> Entreprise</div>
-          <div class="meta">150 To</div>
-          <div class="price">Sur devis</div>
-          <div class="row">
-            <a class="btn" href="#">Contacter les ventes</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="title"><span class="icon ic-max">🏢</span> Entreprise Max</div>
-          <div class="meta">300 To</div>
-          <div class="price">Sur devis</div>
-          <div class="row">
-            <a class="btn" href="#">Contacter les ventes</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <footer id="login">
-    <div class="wrap">
-      © Vcloud — Conditions • Confidentialité • Contact
-    </div>
-  </footer>
-
+  <!-- (Optionnel) script pour le burger, le scroll doux, etc. -->
+  <script src="assets/app.js" defer></script>
 </body>
 </html>
