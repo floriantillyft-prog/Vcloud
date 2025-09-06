@@ -5,90 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vcloud — Stockage sécurisé</title>
 
-  <!-- Chargement CSS corrigé -->
-  <link rel="stylesheet" href="./assets/style.css?v=1" />
+  <!-- Charge le CSS local à la racine -->
+  <link rel="stylesheet" href="./style.css?v=1" />
 </head>
 <body>
-  <!-- ===== Topbar ===== -->
+  <!-- Topbar -->
   <header class="topbar">
     <div class="brand">
-      <img src="./assets/img/logo.png" alt="Vcloud logo" class="logo" />
+      <span class="logo"></span>
       <span class="brand-name">Vcloud</span>
     </div>
     <nav class="nav">
-      <a href="#features">Fonctionnalités</a>
+      <a href="#why">Pourquoi Vcloud</a>
       <a href="#offers">Abonnements</a>
-      <a href="#dashboard">Espace abonné</a>
     </nav>
-    <a href="#login" class="btn small ghost">Se connecter</a>
+    <a href="#" class="btn ghost small">Se connecter</a>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <h1>Ton espace sécurisé dans le cloud</h1>
-    <p>Stockage chiffré, simple et rapide pour tous tes fichiers</p>
-    <a href="#features" class="btn">Accéder à Vcloud</a>
+  <!-- 1) Accueil / Hero -->
+  <section class="panel hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <h1>Ton espace sécurisé<br>dans le cloud</h1>
+      <p class="lede">Stockage chiffré, simple et rapide pour tous tes fichiers.</p>
+      <a href="#why" class="btn">Accéder à Vcloud</a>
+    </div>
+    <a class="scroll-indicator" href="#why" aria-label="Descendre">&#x25BC;</a>
   </section>
 
-  <!-- ===== Features ===== -->
-  <section id="features" class="features">
-    <h2>Vcloud</h2>
-    <h3>Tes fichiers, partout, en sécurité</h3>
-    <p>
-      Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande.
-      Simple, rapide et pensé pour le quotidien.
-    </p>
-    <a href="#offers" class="btn">Consulter les abonnements</a>
+  <!-- 2) Pourquoi Vcloud -->
+  <section class="panel why" id="why">
+    <div class="why-inner">
+      <div class="copy">
+        <span class="kicker">VCLOUD</span>
+        <h2>Tes fichiers, partout, en sécurité</h2>
+        <p class="text">
+          Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande.
+          Simple, rapide et pensé pour le quotidien.
+        </p>
+        <div class="actions">
+          <a href="#offers" class="btn">Consulter les abonnements</a>
+          <a href="#" class="btn ghost">Créer un compte</a>
+        </div>
+      </div>
+      <div class="tiles" aria-hidden="true">
+        <div class="tile tall"></div>
+        <div class="tile wide"></div>
+        <div class="tile phone"></div>
+      </div>
+    </div>
   </section>
 
-  <!-- ===== Offers ===== -->
-  <section id="offers" class="offers">
+  <!-- 3) Abonnements -->
+  <section class="panel offers" id="offers">
     <h2>Offres d’abonnement</h2>
 
-    <div class="offer-card">
-      <h3>🚀 Starter</h3>
-      <p>1,5 To</p>
-      <p><strong>Gratuit</strong></p>
-      <a href="#" class="btn small">Créer un compte</a>
+    <div class="cards">
+      <article class="card">
+        <header><h3>🚀 Starter</h3><small>1,5 To</small></header>
+        <div class="price">Gratuit</div>
+        <a href="#" class="btn ghost small">Créer un compte</a>
+      </article>
+
+      <article class="card">
+        <header><h3>🧊 Standard</h3><small>6 To</small></header>
+        <div class="price"><strong>5 €</strong> / mois</div>
+        <a href="#" class="btn ghost small">Choisir Standard</a>
+      </article>
+
+      <article class="card">
+        <header><h3>⚡ Advanced</h3><small>18 To</small></header>
+        <div class="price"><strong>15 €</strong> / mois</div>
+        <a href="#" class="btn ghost small">Choisir Advanced</a>
+      </article>
+
+      <article class="card">
+        <header><h3>💼 Expert</h3><small>30 To</small></header>
+        <div class="price"><strong>25 €</strong> / mois</div>
+        <a href="#" class="btn ghost small">Choisir Expert</a>
+      </article>
+
+      <article class="card">
+        <header><h3>🏢 Entreprise</h3><small>150 To</small></header>
+        <div class="price">Sur devis</div>
+        <a href="#" class="btn ghost small">Contacter les ventes</a>
+      </article>
+
+      <article class="card">
+        <header><h3>🏙️ Entreprise Max</h3><small>300 To</small></header>
+        <div class="price">Sur devis</div>
+        <a href="#" class="btn ghost small">Contacter les ventes</a>
+      </article>
     </div>
 
-    <div class="offer-card">
-      <h3>📦 Standard</h3>
-      <p>6 To</p>
-      <p><strong>5 € / mois</strong></p>
-      <a href="#" class="btn small">Choisir Standard</a>
-    </div>
-
-    <div class="offer-card">
-      <h3>⚡ Advanced</h3>
-      <p>18 To</p>
-      <p><strong>15 € / mois</strong></p>
-      <a href="#" class="btn small">Choisir Advanced</a>
-    </div>
-
-    <div class="offer-card">
-      <h3>💼 Expert</h3>
-      <p>30 To</p>
-      <p><strong>25 € / mois</strong></p>
-      <a href="#" class="btn small">Choisir Expert</a>
-    </div>
-
-    <div class="offer-card">
-      <h3>🏢 Entreprise</h3>
-      <p>150 To</p>
-      <p><strong>Sur devis</strong></p>
-      <a href="#" class="btn small">Contacter les ventes</a>
-    </div>
-
-    <div class="offer-card">
-      <h3>🏢 Entreprise Max</h3>
-      <p>300 To</p>
-      <p><strong>Sur devis</strong></p>
-      <a href="#" class="btn small">Contacter les ventes</a>
-    </div>
+    <footer class="legal">
+      <div class="trust">
+        <span class="pill">Google</span>
+        <span class="pill">sslstore</span>
+        <span class="pill">trustpilot</span>
+      </div>
+      <nav class="links">
+        <a href="#">Conditions</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Contact</a>
+      </nav>
+    </footer>
   </section>
-
-  <!-- ===== Scripts corrigés ===== -->
-  <script src="./assets/app.js?v=1" defer></script>
 </body>
 </html>
