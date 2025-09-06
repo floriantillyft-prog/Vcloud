@@ -4,102 +4,153 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vcloud — Stockage sécurisé</title>
-  <meta name="description" content="Vcloud — Stockage chiffré côté client, synchronisation multi-appareils et capacité extensible à la demande." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="preload" href="assets/style.css" as="style">
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <!-- HEADER / NAV -->
-  <header class="header">
-    <button class="burger" aria-label="Ouvrir le menu" id="burgerBtn">
-      <span></span><span></span><span></span>
-    </button>
-
-    <div class="brand">
-      <span class="logo"></span>
-      <span class="brand-text">Vcloud</span>
-    </div>
-
-    <nav class="top-actions">
-      <a class="btn ghost" href="#" id="loginBtn">Se connecter</a>
+  <!-- Drawer / menu burger -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <nav class="drawer-content">
+      <h3>Vcloud</h3>
+      <a href="#hero" class="drawer-link">Accueil</a>
+      <a href="#features" class="drawer-link">Fonctionnalités</a>
+      <a href="#pricing" class="drawer-link" id="drawerPricing">Abonnements</a>
+      <a href="drive.html" class="drawer-link">Espace abonné</a>
     </nav>
+    <button class="drawer-scrim" id="drawerScrim" aria-label="Fermer le menu"></button>
+  </aside>
+
+  <!-- Topbar (re-used visually via position sticky) -->
+  <header class="topbar">
+    <button class="icon-btn" id="burger" aria-label="Ouvrir le menu"><span></span></button>
+    <div class="brand"><span class="logo"></span> Vcloud</div>
+    <nav class="top-links">
+      <a href="#features">Fonctionnalités</a>
+      <a href="#pricing" id="topPricing">Abonnements</a>
+    </nav>
+    <a class="btn ghost" href="drive.html">Se connecter</a>
   </header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-inner">
-      <div class="sidebar-header">
-        <span class="logo"></span>
-        <strong>Vcloud</strong>
-      </div>
-      <ul class="sidebar-menu">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#why">Pourquoi Vcloud</a></li>
-        <li><a href="#pricing">Abonnements</a></li>
-        <li><a href="#" id="sidebarLogin">Se connecter</a></li>
-      </ul>
-      <button class="btn ghost small" id="closeSidebar">Fermer</button>
-    </div>
-  </aside>
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-
-  <!-- BACKGROUND (stars + nebula) -->
-  <div class="bg">
-    <canvas id="stars"></canvas>
-    <div class="nebula"></div>
-  </div>
-
-  <!-- WRAPPER (3 panneaux) -->
-  <main class="snap-container">
-    <section class="panel hero snap" id="accueil" data-bg="space">
+  <!-- Track: 2 panels vertical + 1 panel qui slide horizontalement -->
+  <main class="track" id="track">
+    <!-- Panel 1: Accueil -->
+    <section class="panel hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-inner">
-        <h1>Ton espace sécurisé<br/>dans le cloud</h1>
-        <div class="cta-row">
-          <a href="#why" class="btn primary">Accéder à Vcloud</a>
+        <h1>Ton espace sécurisé<br>dans le cloud</h1>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#features" id="gotoFeatures">Accéder à Vcloud</a>
         </div>
+        <div class="scroll-hint">▾</div>
       </div>
-      <button class="scroll-indicator" aria-label="Descendre" data-target="#why">
-        <span class="arrow"></span>
-      </button>
     </section>
 
-    <section class="panel why snap" id="why" data-bg="illustration">
-      <div class="why-inner">
-        <div class="why-left">
-          <span class="kicker">VCLOUD</span>
+    <!-- Panel 2: Fonctionnalités / CTA -->
+    <section class="panel features" id="features">
+      <div class="features-bg" aria-hidden="true">
+        <div class="stars"></div>
+        <div class="nebula"></div>
+        <div class="rocket"></div>
+      </div>
+      <div class="features-grid">
+        <div class="copy">
+          <span class="eyebrow">VCLOUD</span>
           <h2>Tes fichiers, partout, en sécurité</h2>
-          <p class="lede">Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande. Simple, rapide et pensé pour le quotidien.</p>
-          <div class="why-actions">
-            <a class="btn primary" href="#pricing">Consulter les abonnements</a>
-            <a class="btn ghost" href="#" id="whyLogin">Se connecter</a>
+          <p>
+            Chiffrement côté client, synchronisation multi‑appareils et
+            capacité extensible à la demande. Simple, rapide et pensé
+            pour le quotidien.
+          </p>
+          <div class="actions-row">
+            <button class="btn primary" id="openPricing">Consulter les abonnements</button>
+            <a class="btn ghost slim" href="drive.html">Se connecter</a>
           </div>
         </div>
-        <div class="why-illu">
-          <svg class="cloud" viewBox="0 0 320 160"><path d="M74 120h170a40 40 0 0 0 0-80c-5 0-10 1-15 3a60 60 0 0 0-110 8a45 45 0 0 0-45 69z" fill="#fff" opacity=".85"/></svg>
-          <div class="devices">
-            <div class="device tablet"></div>
-            <div class="device laptop"></div>
-            <div class="device phone"></div>
-          </div>
+        <div class="devices">
+          <div class="device device-tablet"></div>
+          <div class="device device-laptop"></div>
+          <div class="device device-phone"></div>
         </div>
       </div>
     </section>
 
-    <section class="panel pricing snap" id="pricing" data-bg="soft">
-      <div class="pricing-inner">
+    <!-- Panel 3: Abonnements (slide depuis la droite) -->
+    <section class="panel pricing" id="pricing" aria-label="Offres d'abonnement">
+      <div class="section-head">
         <h2>Offres d’abonnement</h2>
-        <div class="grid">
-          <article class="card"><header class="card-head"><div class="icon rocket"></div><div class="meta"><h3>Starter</h3><small>1,5 To</small></div></header><div class="price"><strong>Gratuit</strong></div></article>
-          <article class="card"><header class="card-head"><div class="icon cube"></div><div class="meta"><h3>Standard</h3><small>6 To</small></div></header><div class="price"><span class="amount">5 €</span> <span class="unit">/ mois</span></div></article>
-          <article class="card"><header class="card-head"><div class="icon bolt"></div><div class="meta"><h3>Advanced</h3><small>18 To</small></div></header><div class="price"><span class="amount">15 €</span> <span class="unit">/ mois</span></div></article>
-          <article class="card"><header class="card-head"><div class="icon brief"></div><div class="meta"><h3>Expert</h3><small>30 To</small></div></header><div class="price"><span class="amount">25 €</span> <span class="unit">/ mois</span></div></article>
-          <article class="card"><header class="card-head"><div class="icon building"></div><div class="meta"><h3>Entreprise</h3><small>150 To</small></div></header><div class="price"><strong>Sur devis</strong></div></article>
-          <article class="card"><header class="card-head"><div class="icon tower"></div><div class="meta"><h3>Entreprise Max</h3><small>300 To</small></div></header><div class="price"><strong>Sur devis</strong></div></article>
-        </div>
       </div>
+
+      <div class="cards">
+        <article class="card">
+          <header>
+            <div class="badge">🚀 Starter</div>
+            <div class="meta"><strong>1,5 To</strong></div>
+          </header>
+          <div class="price">Gratuit</div>
+          <a class="btn ghost small" href="#">Créer un compte</a>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="badge">🧊 Standard</div>
+            <div class="meta"><strong>6 To</strong></div>
+          </header>
+          <div class="price"><strong>5 €</strong> / mois</div>
+          <a class="btn ghost small" href="#">Choisir Standard</a>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="badge">⚡ Advanced</div>
+            <div class="meta"><strong>18 To</strong></div>
+          </header>
+          <div class="price"><strong>15 €</strong> / mois</div>
+          <a class="btn ghost small" href="#">Choisir Advanced</a>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="badge">💼 Expert</div>
+            <div class="meta"><strong>30 To</strong></div>
+          </header>
+          <div class="price"><strong>25 €</strong> / mois</div>
+          <a class="btn ghost small" href="#">Choisir Expert</a>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="badge">🏢 Entreprise</div>
+            <div class="meta"><strong>150 To</strong></div>
+          </header>
+          <div class="price">Sur devis</div>
+          <a class="btn ghost small" href="#">Contacter les ventes</a>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="badge">🏙️ Entreprise Max</div>
+            <div class="meta"><strong>300 To</strong></div>
+          </header>
+          <div class="price">Sur devis</div>
+          <a class="btn ghost small" href="#">Contacter les ventes</a>
+        </article>
+      </div>
+
+      <footer class="legal">
+        <div class="trust">
+          <span class="pill">Google</span>
+          <span class="pill">sslstore</span>
+          <span class="pill">trustpilot</span>
+        </div>
+        <nav class="foot-links">
+          <a href="#">Conditions</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">Contact</a>
+        </nav>
+      </footer>
     </section>
   </main>
-  <script src="assets/app.js"></script>
+
+  <script defer src="assets/app.js"></script>
 </body>
 </html>
