@@ -1,24 +1,18 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches: ["main"]   # Déploie à chaque push sur main
+  workflow_dispatch:     # Permet aussi de lancer manuellement
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,8 +23,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # IMPORTANT : on publie le sous-dossier où sont tes fichiers
-          path: vcloud_ghpages_ready
+          path: .   # tout ton site (index.html, css, js...)
 
       - name: Deploy to GitHub Pages
         id: deployment
