@@ -1,30 +1,45 @@
 name: Deploy to GitHub Pages
 
 on:
+  workflow_dispatch:
   push:
-    branches: ["main"]   # Déploie à chaque push sur main
-  workflow_dispatch:     # Permet aussi de lancer manuellement
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Pages
+      # Active Pages si possible (sinon ça renvoie parfois 404 dans certaines org)
+      - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
+        continue-on-error: true  # ← pour ne pas casser si l'API retourne 404
 
+      # (Si ton site est à la racine; sinon mets le sous-dossier)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # tout ton site (index.html, css, js...)
+          path: .
 
-      - name: Deploy to GitHub Pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
