@@ -1,23 +1,11 @@
-# Vcloud (GitHub Pages prêt)
+# Vcloud – site statique
 
-Ce dépôt est prêt à être poussé tel quel sur GitHub pour déployer **automatiquement** sur **GitHub Pages**.
+Trois interfaces enchaînées :
+1. **Accueil** (fond étoilé animé, CTA “Accéder à Vcloud”)
+2. **Fonctionnalités** (fond “smooth” animé, bouton “Consulter les abonnements”, bouton “Se connecter” à droite, menu burger avec tiroir à gauche)
+3. **Abonnements** (slide horizontal, cartes avec hover)
 
-## Déploiement
-1. Crée un nouveau dépôt vide sur ton GitHub (ex: `vcloud`).  
-2. Pousse ces fichiers :
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/<ton-user>/<ton-repo>.git
-   git push -u origin main
-   ```
-3. Va sur l'onglet **Actions** : le workflow **Pages** va construire et publier le site (branche `gh-pages`).  
-4. Dans **Settings → Pages**, l’URL s’affiche (ex: `https://<ton-user>.github.io/<ton-repo>/`).
+## Déploiement via GitHub Pages (Actions)
 
-### Domaine personnalisé (optionnel)
-- Modifie le fichier `CNAME` et mets **ton** domaine (ex: `cloud.mondomaine.com`).  
-- Ajoute un CNAME DNS pointant vers `<ton-user>.github.io`.
-
-Bon déploiement !
+- `Settings → Pages` : **Source = GitHub Actions**
+- Le workflow `.github/workflows/deploy.yml` se déclenche à chaque push sur `main` (ou manuellement).
