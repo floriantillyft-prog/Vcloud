@@ -3,57 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vcloud — Accueil</title>
+<title>Vcloud — Cloud simple & performant</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="header">
-  <div class="brand"><div class="logo"></div><h1>Vcloud</h1></div>
-  <nav><a href="#offres">Offres</a> <a href="dashboard.html">Espace abonné</a></nav>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo"></span>
+    <span class="brand-name">Vcloud</span>
+  </div>
+  <nav class="nav">
+    <a href="#offres">Offres</a>
+    <a href="#demo">Démo</a>
+    <a class="btn small" href="dashboard.html">Espace abonné</a>
+  </nav>
 </header>
 
-<section id="home" class="home">
-  <h1>Bienvenue sur Vcloud</h1>
-  <p>Le cloud simple, sécurisé et performant.</p>
-  <a href="#offres" class="btn">Découvrir nos offres</a>
-</section>
+<main class="wrap">
+  <section class="hero">
+    <h1>Stockage simple, sécurisé et performant</h1>
+    <p>Chiffrement côté client, réplication ×3, zéro connaissance. Votre espace, sous votre contrôle.</p>
+    <a href="#offres" class="btn">Voir les offres</a>
+  </section>
 
-<section id="offres" class="offres">
-  <h2>Nos Offres d'abonnement</h2>
-  <div class="grid">
-    <div class="card starter"><h3>Starter</h3><p>500 Go (1,5 To répliqué)</p></div>
-    <div class="card standard"><h3>Standard</h3><p>2 To (6 To répliqué)</p></div>
-    <div class="card pro"><h3>Pro</h3><p>4 To (12 To répliqué)</p></div>
-    <div class="card advanced"><h3>Advanced</h3><p>6 To (18 To répliqué)</p></div>
-    <div class="card expert"><h3>Expert</h3><p>10 To (30 To répliqué)</p></div>
-    <div class="card entreprise"><h3>Entreprise</h3><p>50 To (150 To répliqué)</p></div>
-    <div class="card entmax"><h3>Entreprise Max</h3><p>100 To (300 To répliqué)</p></div>
-  </div>
-</section>
+  <section class="tagline">
+    <h2>Stockage sans limite*</h2>
+    <p class="muted">*Capacité extensible : nous ajoutons de la capacité à la demande pour accompagner votre croissance.</p>
+  </section>
 
-<section id="demo" class="demo">
-  <h2>Démo chiffrage (facultatif)</h2>
-  <p>Sélectionne un fichier et un mot de passe. Tout se fait dans ton navigateur.</p>
-  <input type="password" id="pass" placeholder="Mot de passe">
-  <input type="file" id="file">
-  <button class="btn" id="encryptBtn">Chiffrer & stocker</button>
-  <button class="btn" id="exportBtn">Exporter .vcloud</button>
-  <button class="btn" id="importBtn">Importer .vcloud</button>
-  <button class="btn" id="restoreBtn">Restaurer</button>
-  <div class="progress"><div id="bar"></div></div>
-  <pre id="log"></pre>
-</section>
+  <section id="offres" class="offers">
+    <h2>Offres d'abonnement</h2>
+    <p class="muted">Chaque abonnement inclut la réplication ×3. Couleur = niveau d'offre.</p>
+    <div class="grid">
+      <article class="plan plan-starter"><header><span class="dot"></span><h3>Starter</h3></header><ul class="specs"><li><b>Contribution</b> — 500 Go (disque prêté)</li><li><b>Stockage total</b> — 1,5 To (×3)</li></ul><a class="btn ghost" href="#">Créer un compte <span class="pill">Gratuit</span></a></article>
+      <article class="plan plan-standard"><header><span class="dot"></span><h3>Standard</h3></header><ul class="specs"><li><b>Contribution</b> — 2 To</li><li><b>Stockage total</b> — 6 To (×3)</li></ul><a class="btn ghost" href="#">Démarrer l'essai <span class="pill">~ 5 € / mois</span></a></article>
+      <article class="plan plan-pro"><header><span class="dot"></span><h3>Pro</h3></header><ul class="specs"><li><b>Contribution</b> — 4 To</li><li><b>Stockage total</b> — 12 To (×3)</li></ul><a class="btn ghost" href="#">Passer Pro <span class="pill">~ 10 € / mois</span></a></article>
+      <article class="plan plan-advanced"><header><span class="dot"></span><h3>Advanced</h3></header><ul class="specs"><li><b>Contribution</b> — 6 To</li><li><b>Stockage total</b> — 18 To (×3)</li></ul><a class="btn ghost" href="#">Choisir Advanced <span class="pill">~ 15 € / mois</span></a></article>
+      <article class="plan plan-expert"><header><span class="dot"></span><h3>Expert</h3></header><ul class="specs"><li><b>Contribution</b> — 10 To</li><li><b>Stockage total</b> — 30 To (×3)</li></ul><a class="btn ghost" href="#">Choisir Expert <span class="pill">~ 25 € / mois</span></a></article>
+      <article class="plan plan-ent"><header><span class="dot"></span><h3>Entreprise</h3></header><ul class="specs"><li><b>Contribution</b> — 50 To</li><li><b>Stockage total</b> — 150 To (×3)</li></ul><a class="btn ghost" href="#">Contacter les ventes <span class="pill">Sur devis</span></a></article>
+      <article class="plan plan-entmax"><header><span class="dot"></span><h3>Entreprise Max</h3></header><ul class="specs"><li><b>Contribution</b> — 100 To</li><li><b>Stockage total</b> — 300 To (×3)</li></ul><a class="btn ghost" href="#">Parler à un expert <span class="pill">Sur devis</span></a></article>
+    </div>
+  </section>
 
-<footer class="footer">© 2025 Vcloud</footer>
+  <section id="demo" class="demo">
+    <h2>Démo chiffrage (facultatif)</h2>
+    <p class="muted">Sélectionnez un fichier et un mot de passe. Tout se fait dans votre navigateur.</p>
+    <div class="controls">
+      <input id="pass" type="password" placeholder="Mot de passe">
+      <input id="file" type="file">
+      <button class="btn" id="encryptBtn">Chiffrer & stocker</button>
+      <button class="btn" id="exportBtn">Exporter .vcloud</button>
+      <button class="btn" id="importBtn">Importer .vcloud</button>
+      <button class="btn" id="restoreBtn">Restaurer</button>
+    </div>
+    <div class="progress"><div id="bar"></div></div>
+    <pre id="log"></pre>
+    <p class="tiny muted">Tech : PBKDF2‑SHA256 → AES‑GCM 256, chunks 1 MiB, IndexedDB.</p>
+  </section>
+</main>
+
+<footer class="foot">© Vcloud — Prototype</footer>
 
 <script src="crypto_demo.js"></script>
 <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
-  });
-});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'});
+}));
 </script>
 </body>
 </html>
