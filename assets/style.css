@@ -1,59 +1,49 @@
-/* ====== FOND GLOBAL (dégradé + étoiles animées + vignette) ====== */
-
-:root{
-  --bg-1:#0b1220;
-  --bg-2:#0e1a2b;
-  --bg-3:#101a2a;
-  --vignette:#000000aa;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #0d1117, #1b2735);
+  color: #fff;
 }
-
-/* IMPORTANT: retire toute règle ailleurs du type:
-   html,body { background:#0d1117; } */
-html,body{
-  height:100%;
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
 }
-
-/* Dégradé spatial */
-body{
-  background:
-    radial-gradient(1200px 800px at 50% -200px, #162a49 0%, #0f1f36 40%, #0b1423 75%, #0a101a 100%),
-    radial-gradient(700px 500px at 80% -150px, #10284b88 0%, transparent 70%) no-repeat,
-    linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  color:#e6ecf5;
+.logo { width: 30px; margin-right: 10px; }
+.brand { display: flex; align-items: center; }
+.nav a { margin: 0 1rem; text-decoration: none; color: #9da5b4; }
+.nav a:hover { color: #fff; }
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-
-/* Etoiles animées (sans images) */
-body::before{
-  content:"";
-  position:fixed;
-  inset:-10vh -10vw;
-  pointer-events:none;
-  background:
-    radial-gradient(2px 2px at 10% 20%, #fff4 25%, transparent 26%) repeat,
-    radial-gradient(1px 1px at 30% 80%, #fff3 25%, transparent 26%) repeat,
-    radial-gradient(1px 1px at 70% 30%, #fff2 25%, transparent 26%) repeat;
-  background-size:600px 600px, 800px 800px, 1000px 1000px;
-  animation:twinkle 12s linear infinite;
-  z-index:0;
+.btn.small { padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+.hero {
+  text-align: center;
+  padding: 8rem 2rem;
 }
-
-/* Vignette douce pour la profondeur */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:radial-gradient(1200px 800px at 50% -200px, transparent 0%, transparent 60%, var(--vignette) 100%);
-  z-index:0;
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.features, .offers, .dashboard {
+  padding: 4rem 2rem;
+  text-align: center;
 }
-
-@keyframes twinkle{
-  0%,100%{opacity:.7}
-  50%{opacity:.35}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
-
-/* S’assure que tout le contenu passe AU-DESSUS du décor */
-#app, .page, header, main, footer, section{
-  position:relative;
-  z-index:1;
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.1);
 }
