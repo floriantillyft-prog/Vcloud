@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vcloud — Stockage sécurisé</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Vcloud logo" class="logo" />
+      <span class="brand-name">Vcloud</span>
+    </div>
+    <nav class="nav">
+      <a href="#features">Pourquoi Vcloud</a>
+      <a href="#pricing">Abonnements</a>
+      <a href="#dashboard">Espace abonné</a>
+    </nav>
+    <a href="#login" class="btn small">Se connecter</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Ton espace sécurisé dans le cloud</h1>
+      <p>Stockage chiffré, simple et rapide pour tous tes fichiers.</p>
+      <a href="#features" class="btn">Accéder à Vcloud</a>
+    </section>
+
+    <section id="features" class="features">
+      <h2>Vcloud</h2>
+      <p class="tagline">Tes fichiers, partout, en sécurité</p>
+      <p>Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande. Simple, rapide et pensé pour le quotidien.</p>
+      <a href="#pricing" class="btn">Consulter les abonnements</a>
+    </section>
+
+    <section id="pricing" class="offers">
+      <h2>Offres d’abonnement</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🚀 Starter</h3>
+          <p><strong>1,5 To</strong></p>
+          <p>Gratuit</p>
+          <a href="#" class="btn small">Créer un compte</a>
+        </div>
+        <div class="card">
+          <h3>📦 Standard</h3>
+          <p><strong>6 To</strong></p>
+          <p>5 € / mois</p>
+          <a href="#" class="btn small">Choisir Standard</a>
+        </div>
+        <div class="card">
+          <h3>⚡ Advanced</h3>
+          <p><strong>18 To</strong></p>
+          <p>15 € / mois</p>
+          <a href="#" class="btn small">Choisir Advanced</a>
+        </div>
+        <div class="card">
+          <h3>💼 Expert</h3>
+          <p><strong>30 To</strong></p>
+          <p>25 € / mois</p>
+          <a href="#" class="btn small">Choisir Expert</a>
+        </div>
+        <div class="card">
+          <h3>🏢 Entreprise</h3>
+          <p><strong>150 To</strong></p>
+          <p>Sur devis</p>
+          <a href="#" class="btn small">Contacter les ventes</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="dashboard">
+      <h2>Espace abonné</h2>
+      <input type="file" id="fileInput" />
+      <button onclick="uploadFile()">Uploader</button>
+      <ul id="fileList"></ul>
+    </section>
+  </main>
+</body>
+</html>

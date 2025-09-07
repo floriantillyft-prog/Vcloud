@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #0d1117, #1b2735);
+  color: #fff;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+}
+.logo { width: 30px; margin-right: 10px; }
+.brand { display: flex; align-items: center; }
+.nav a { margin: 0 1rem; text-decoration: none; color: #9da5b4; }
+.nav a:hover { color: #fff; }
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.btn.small { padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+.hero {
+  text-align: center;
+  padding: 8rem 2rem;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.features, .offers, .dashboard {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.1);
+}
