@@ -1,206 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
-  <title>Vcloud — Stockage sécurisé, simple & performant</title>
-
-  <!-- Feuille de style globale -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vcloud — Stockage sécurisé</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/app.js"></script>
 </head>
-
 <body>
-  <!-- Barre supérieure -->
   <header class="topbar">
-    <div class="wrap">
-      <a class="brand" href="#top" aria-label="Accueil Vcloud">
-        <span class="brand-mark" aria-hidden="true">☁️</span>
-        <span class="brand-name">Vcloud</span>
-      </a>
-
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="#why">Pourquoi Vcloud</a>
-        <a href="#offers">Abonnements</a>
-        <a class="btn small" href="#signin">Se connecter</a>
-      </nav>
-
-      <!-- Burger (optionnel si tu gères l’ouverture de menu en JS) -->
-      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menuDrawer">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Vcloud logo" class="logo" />
+      <span class="brand-name">Vcloud</span>
     </div>
+    <nav class="nav">
+      <a href="#features">Pourquoi Vcloud</a>
+      <a href="#pricing">Abonnements</a>
+      <a href="#dashboard">Espace abonné</a>
+    </nav>
+    <a href="#login" class="btn small">Se connecter</a>
   </header>
 
-  <main id="top" class="page">
+  <main>
+    <section class="hero">
+      <h1>Ton espace sécurisé dans le cloud</h1>
+      <p>Stockage chiffré, simple et rapide pour tous tes fichiers.</p>
+      <a href="#features" class="btn">Accéder à Vcloud</a>
+    </section>
 
-    <!-- SECTION 1 : HERO -->
-    <section class="hero" id="hero" aria-label="Accroche">
-      <div class="wrap">
-        <h1>Ton espace sécurisé<br />dans le cloud</h1>
-        <p class="muted">Stockage chiffré, simple et rapide pour tous tes fichiers.</p>
+    <section id="features" class="features">
+      <h2>Vcloud</h2>
+      <p class="tagline">Tes fichiers, partout, en sécurité</p>
+      <p>Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande. Simple, rapide et pensé pour le quotidien.</p>
+      <a href="#pricing" class="btn">Consulter les abonnements</a>
+    </section>
 
-        <div class="cta-row">
-          <a class="btn" href="#features">Accéder à Vcloud</a>
+    <section id="pricing" class="offers">
+      <h2>Offres d’abonnement</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🚀 Starter</h3>
+          <p><strong>1,5 To</strong></p>
+          <p>Gratuit</p>
+          <a href="#" class="btn small">Créer un compte</a>
         </div>
-
-        <div class="scroll-hint" aria-hidden="true">▾</div>
+        <div class="card">
+          <h3>📦 Standard</h3>
+          <p><strong>6 To</strong></p>
+          <p>5 € / mois</p>
+          <a href="#" class="btn small">Choisir Standard</a>
+        </div>
+        <div class="card">
+          <h3>⚡ Advanced</h3>
+          <p><strong>18 To</strong></p>
+          <p>15 € / mois</p>
+          <a href="#" class="btn small">Choisir Advanced</a>
+        </div>
+        <div class="card">
+          <h3>💼 Expert</h3>
+          <p><strong>30 To</strong></p>
+          <p>25 € / mois</p>
+          <a href="#" class="btn small">Choisir Expert</a>
+        </div>
+        <div class="card">
+          <h3>🏢 Entreprise</h3>
+          <p><strong>150 To</strong></p>
+          <p>Sur devis</p>
+          <a href="#" class="btn small">Contacter les ventes</a>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 2 : “FEATURES” + CTA vers offres -->
-    <section id="features" aria-labelledby="features-title">
-      <div class="wrap">
-        <p class="tagline" id="why">VCLOUD</p>
-        <h2 id="features-title">Tes fichiers, partout, en sécurité</h2>
-        <p class="muted">
-          Chiffrement côté client, synchronisation multi-appareils et capacité extensible à la demande.
-          Simple, rapide et pensé pour le quotidien.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn" href="#offers">Consulter les abonnements</a>
-          <a class="btn ghost" href="#signin">Se connecter</a>
-        </div>
-
-        <!-- Illustration placeholder (fond/ombres gérés par CSS) -->
-        <div class="devices-plate" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <!-- SECTION 3 : OFFRES / PRICING -->
-    <section class="offers" id="offers" aria-labelledby="offers-title">
-      <div class="wrap">
-        <h2 id="offers-title">Offres d’abonnement</h2>
-
-        <div class="offers-grid">
-
-          <!-- Starter -->
-          <article class="card">
-            <header class="plan">
-              <span class="plan-ico">🚀</span>
-              <div class="plan-txt">
-                <h3 class="plan-name">Starter</h3>
-                <div class="storage">1,5 To</div>
-              </div>
-            </header>
-            <div class="price">
-              <span class="value">Gratuit</span>
-            </div>
-            <div class="actions">
-              <a class="btn ghost" href="#signup">Créer un compte</a>
-            </div>
-          </article>
-
-          <!-- Standard -->
-          <article class="card">
-            <header class="plan">
-              <span class="plan-ico">🔷</span>
-              <div class="plan-txt">
-                <h3 class="plan-name">Standard</h3>
-                <div class="storage">6 To</div>
-              </div>
-            </header>
-            <div class="price">
-              <span class="value">5 €</span>
-              <span class="per">/ mois</span>
-            </div>
-            <div class="actions">
-              <a class="btn ghost" href="#choose-standard">Choisir Standard</a>
-            </div>
-          </article>
-
-          <!-- Advanced -->
-          <article class="card">
-            <header class="plan">
-              <span class="plan-ico">⚡</span>
-              <div class="plan-txt">
-                <h3 class="plan-name">Advanced</h3>
-                <div class="storage">18 To</div>
-              </div>
-            </header>
-            <div class="price">
-              <span class="value">15 €</span>
-              <span class="per">/ mois</span>
-            </div>
-            <div class="actions">
-              <a class="btn ghost" href="#choose-advanced">Choisir Advanced</a>
-            </div>
-          </article>
-
-          <!-- Expert -->
-          <article class="card">
-            <header class="plan">
-              <span class="plan-ico">💼</span>
-              <div class="plan-txt">
-                <h3 class="plan-name">Expert</h3>
-                <div class="storage">30 To</div>
-              </div>
-            </header>
-            <div class="price">
-              <span class="value">25 €</span>
-              <span class="per">/ mois</span>
-            </div>
-            <div class="actions">
-              <a class="btn ghost" href="#choose-expert">Choisir Expert</a>
-            </div>
-          </article>
-
-          <!-- Entreprise -->
-          <article class="card">
-            <header class="plan">
-              <span class="plan-ico">🏢</span>
-              <div class="plan-txt">
-                <h3 class="plan-name">Entreprise</h3>
-                <div class="storage">150 To</div>
-              </div>
-            </header>
-            <div class="price">
-              <span class="value">Sur devis</span>
-            </div>
-            <div class="actions">
-              <a class="btn ghost" href="#sales">Contactez les ventes</a>
-            </div>
-          </article>
-
-          <!-- Entreprise Max -->
-          <article class="card">
-            <header class="plan">
-              <span class="plan-ico">🏙️</span>
-              <div class="plan-txt">
-                <h3 class="plan-name">Entreprise Max</h3>
-                <div class="storage">300 To</div>
-              </div>
-            </header>
-            <div class="price">
-              <span class="value">Sur devis</span>
-            </div>
-            <div class="actions">
-              <a class="btn ghost" href="#sales">Contactez les ventes</a>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="trust">
-          <span class="muted">Ils nous font confiance :</span>
-          <div class="badges">
-            <span class="badge">sslstore</span>
-            <span class="badge">Google</span>
-            <span class="badge">trustpilot</span>
-          </div>
-        </div>
-
-        <div class="footlinks">
-          <a href="#terms">Conditions</a>
-          <a href="#privacy">Confidentialité</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
+    <section id="dashboard" class="dashboard">
+      <h2>Espace abonné</h2>
+      <input type="file" id="fileInput" />
+      <button onclick="uploadFile()">Uploader</button>
+      <ul id="fileList"></ul>
     </section>
   </main>
-
-  <!-- (Optionnel) script pour le burger, le scroll doux, etc. -->
-  <script src="assets/app.js" defer></script>
 </body>
 </html>
